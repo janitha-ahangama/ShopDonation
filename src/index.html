@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShopDonation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="absolute top-0 left-0 w-full bg-transparent z-10">
+        <div class="max-w-screen-2xl mx-auto px-4 pt-4 sm:px-2 lg:px-4">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <img src="./images/logo.png" alt="ShopDonation" class="h-7 md:h-10 w-auto">
+                </div>
+                <div class="hidden lg:flex space-x-4 md:space-x-6">
+                    <ul class="hidden lg:flex space-x-5 md:space-x-7 text-white font-medium text-sm md:text-base text-shadow-lg">
+                        <li><a href="#" class="hover:opacity-75">How it works</a></li>
+                        <li><a href="#" class="hover:opacity-75">Register a cause</a></li>
+                        <li><a href="#" class="hover:opacity-75">Find a cause</a></li>
+                        <li><a href="#" class="hover:opacity-75">About us</a></li>
+                        <li><a href="#" class="hover:opacity-75">Partner with us</a></li>
+                    </ul>
+                </div>
+                <div class="hidden lg:flex space-x-3 md:space-x-5 items-center">
+                    <button id="dropdownDefaultButton" class="text-green-700 bg-slate-300 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-xs md:text-sm px-2 py-2 md:px-2.5 md:py-2.5 text-center inline-flex items-center">
+                        <img src="./images/UK_flag.png" alt="UK Flag" class="h-4 md:h-5">
+                        <svg class="w-2 h-2 md:w-2.5 md:h-2.5 ms-2 md:ms-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <a href="#" class="text-white text-sm md:text-base hover:opacity-75">Sign in</a>
+                    <button class="bg-yellow-400 text-black px-3 py-1.5 md:px-4 md:py-2 rounded-full font-semibold hover:bg-yellow-500 text-sm md:text-base">Sign up</button>
+                </div>
+                <div class="lg:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-90 text-white hidden flex flex-col items-center justify-center space-y-6 text-2xl z-50">
+        <button id="close-btn" class="absolute top-5 right-5 text-white text-3xl">&times;</button>
+        <a href="#" class="hover:text-yellow-400">How it works</a>
+        <a href="#" class="hover:text-yellow-400">Register a cause</a>
+        <a href="#" class="hover:text-yellow-400">Find a cause</a>
+        <a href="#" class="hover:text-yellow-400">About us</a>
+        <a href="#" class="hover:text-yellow-400">Partner with us</a>
+        <a href="#" class="bg-gray-300 text-black px-3 py-1.5 md:px-4 md:py-2 rounded-full font-semibold hover:bg-gray-500">Sign in</a>
+        <button class="bg-yellow-400 text-black px-3 py-1.5 md:px-4 md:py-2 rounded-full font-semibold hover:bg-yellow-500">Sign up</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative text-white h-[80vh] flex items-center justify-center text-center w-full"
+        style="background: linear-gradient(85.13deg, #083B62 8.5%, #083B62 8.51%, #369936 100.13%);">
+
+        <!-- Left Content -->
+        <div class="max-w-xl text-white">
+            <h1 class="text-5xl font-bold">Shop & Give back</h1>
+            <p class="mt-4 text-2xl">Our stores will donate to your chosen cause, <br />every time you shop online using
+                ShopDonation,<br /> with no extra cost.</p>
+            <button
+                class="mt-8 gap-2 bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold hover:bg-yellow-500">
+                Sign up and shop
+            </button>
+        </div>
+
+        <!-- Hero Image (Sticking to Bottom) -->
+        <div class="absolute bottom-0 right-0 pt-16 pr-72">
+            <img src="./images/img-Hero.png" alt="Happy person shopping" class="w-auto max-h-full">
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-20">
+        <div class="relative w-4/5 mx-auto">
+
+            <!-- Left Arrow -->
+            <button id="prev"
+                class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 z-10">
+                <span class="text-lime-600 text-2xl">&#x1F868;</span>
+            </button>
+
+            <!-- Carousel Container -->
+            <div id="carousel" class="flex overflow-x-scroll scroll-smooth no-scrollbar space-x-6 px-12">
+                <!-- Store Cards (Repeating for effect) -->
+                <div class="min-w-[248px] h-36 bg-white shadow-lg p-4 flex flex-col justify-center items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Booking.com_logo.svg/2560px-Booking.com_logo.svg.png"
+                        alt="Booking" class="w-44">
+                    <p class="text-gray-600 text-sm mt-2">Maximum donation: <span
+                            class="text-white px-2 py-1 rounded-full text-xs"
+                            style="background-color: #369936;">1.5%</span></p>
+
+                </div>
+
+                <div class="min-w-[248px] h-36 bg-white shadow-lg p-4 flex flex-col justify-center items-center">
+                    <img src="data:image/png;base64,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"
+                        alt="Groupon" class="w-44">
+                    <p class="text-gray-600 text-sm mt-2">Maximum donation: <span
+                            class="text-white px-2 py-1 rounded-full text-xs"
+                            style="background-color: #369936;">1.5%</span></p>
+                </div>
+
+                <div class="min-w-[248px] h-36 bg-white shadow-lg p-4 flex flex-col justify-center items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png"
+                        alt="Amazon" class="w-44">
+                    <p class="text-gray-600 text-sm mt-2">Maximum donation: <span
+                            class="text-white px-2 py-1 rounded-full text-xs"
+                            style="background-color: #369936;">1.5%</span></p>
+                </div>
+
+                <div class="min-w-[248px] h-36 bg-white shadow-lg p-4 flex flex-col justify-center items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Aliexpress_logo.svg/2560px-Aliexpress_logo.svg.png"
+                        alt="AliExpress" class="w-44">
+                    <p class="text-gray-600 text-sm mt-2">Maximum donation: <span
+                            class="text-white px-2 py-1 rounded-full text-xs"
+                            style="background-color: #369936;">1.5%</span></p>
+                </div>
+                <div class="min-w-[248px] h-36 bg-white shadow-lg p-4 flex flex-col justify-center items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Booking.com_logo.svg/2560px-Booking.com_logo.svg.png"
+                        alt="Booking" class="w-44">
+                    <p class="text-gray-600 text-sm mt-2">Maximum donation: <span
+                            class="text-white px-2 py-1 rounded-full text-xs"
+                            style="background-color: #369936;">1.5%</span></p>
+
+                </div>
+
+                <div class="min-w-[248px] h-36 bg-white shadow-lg p-4 flex flex-col justify-center items-center">
+                    <img src="data:image/png;base64,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"
+                        alt="Groupon" class="w-44">
+                    <p class="text-gray-600 text-sm mt-2">Maximum donation: <span
+                            class="text-white px-2 py-1 rounded-full text-xs"
+                            style="background-color: #369936;">1.5%</span></p>
+                </div>
+
+            </div>
+
+            <!-- Right Arrow -->
+            <button id="next"
+                class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 z-10">
+                <span class="text-lime-600 text-2xl">&#x1F86A;</span>
+            </button>
+        </div>
+
+        <!-- See all stores -->
+        <div class="mt-6 flex justify-center">
+            <a href="#" class="text-blue-500 text-lg font-bold flex items-center">
+                See all stores &#x1F86A;
+            </a>
+        </div>
+    </section>
+
+    <section class="min-h-screen w-full font-raleway flex flex-col items-center justify-between relative overflow-hidden
+        bg-cover bg-center bg-no-repeat" style="background: url('./images/bg.png');">
+
+        <!-- Section 1 -->
+        <section class="h-[756px] font-medium flex items-center justify-between relative overflow-hidden">
+
+            <!-- Left Content -->
+            <div class="max-w-xl p-8 text-white">
+                <p class="mt-4 text-3xl font-light">Redistributing profits to the <br />good in society.</p>
+                <img src="./images/Swosh.png" alt="Happy person shopping" class="pt-4 w-44 max-h-full">
+                <p class="mt-4 text-3xl font-semibold">Worldwide. <br />Sustainable impact.<br />100% transparency.</p>
+            </div>
+
+            <!-- Hero Image (Sticking to Bottom) -->
+            <div class="">
+                <img src="./images/Group 2201.png" alt="Happy person shopping" class="w-auto max-h-full">
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="w-full py-16 bg-cover bg-center" style="background-image: url('./images/background.jpg');">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center px-6 md:px-0">
+
+                <!-- Card 1 -->
+                <div class="bg-white p-8 shadow-lg rounded-tr-[44px] rounded-bl-[44px] flex flex-col h-full">
+                    <img src="./images/Asset 3.png" alt="How it works" class="mx-auto mb-4">
+                    <h2 class="text-green-600 text-2xl font-bold">How it works</h2>
+                    <p class="text-gray-700 mt-2 mb-4 text-xl flex-grow">
+                        Our partnered stores pay us a commission when you shop through ShopDonation.
+                        We turn that commission into a donation for your chosen cause, at no extra cost to you.
+                    </p>
+                    <a href="#" class="text-cyan-700 text-xl font-medium mt-auto inline-block hover:underline">
+                        Read more &#x1F86A;
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 shadow-lg rounded-tr-[44px] rounded-bl-[44px] flex flex-col h-full">
+                    <img src="./images/Asset 2.png" alt="Transparency" class="mx-auto mb-4">
+                    <h2 class="text-green-600 text-2xl font-bold">100% transparency</h2>
+                    <p class="text-gray-700 mt-2 mb-4 text-xl flex-grow">
+                        ShopDonation provides 100% transparency so users and causes can fully track and confirm
+                        donations.
+                    </p>
+                    <a href="#" class="text-cyan-700 text-xl font-medium mt-auto inline-block hover:underline">
+                        Read more &#x1F86A;
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 shadow-lg rounded-tr-[44px] rounded-bl-[44px] flex flex-col h-full">
+                    <img src="./images/Asset 1.png" alt="Structural donations" class="mx-auto mb-4">
+                    <h2 class="text-green-600 text-2xl font-bold">Structural donations</h2>
+                    <p class="text-gray-700 mt-2 mb-4 text-xl flex-grow">
+                        ShopDonation is the only international platform where causes can receive <strong>structural
+                            donations</strong> from multiple countries. Shoppers can support their cause from anywhere
+                        in the
+                        world!
+                    </p>
+                    <a href="#" class="text-cyan-700 text-xl font-medium mt-auto inline-block hover:underline">
+                        Read more &#x1F86A;
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- Section 3 -->
+        <section class="py-14">
+            <h2 class="text-gray-200 pb-12 text-4xl font-bold text-center">Most popular causes last 30 days</h2>
+            <div class="relative w-4/5 mx-auto">
+    
+                <!-- Left Arrow -->
+                <button id="prev"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 z-10">
+                    <span class="text-lime-600 text-2xl">&#x1F868;</span>
+                </button>
+    
+                <!-- Carousel Container -->
+                <div id="carousel" class="flex overflow-x-scroll scroll-smooth no-scrollbar space-x-6 px-12">
+                    <!-- Store Cards (Repeating for effect) -->
+                    <div class="h-auto w-96 rounded-xl border-gray-50 border-solid border-2 shadow-lg flex flex-col justify-center items-center p-6 mx-auto">
+                        <div class="p-5">
+                            <img src="./images/plus.png" alt="Cause1" class="w-32 mx-auto">
+                            <p class="text-gray-50 mt-2 mb-4 text-xl text-center">
+                                Register a new cause on ShopDonation and start raising funds in 1 minute
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="h-full w-96 rounded-xl bg-white shadow-lgflex flex-col justify-center items-center">
+                        <img src="./images/cause1.png" alt="Cause1" class="w-full">
+                        <div class="p-5">
+                            
+                            <h2 class="text-green-600 text-2xl font-bold">Oxfam Novib</h2>
+                            <p class="text-gray-700 mt-2 mb-4 text-xl flex-grow">
+                                Stichting Babyspullen zet zich in om het effect van armoede op baby’s en jonge kinderen te verminderen.
+                            </p>
+                            <p class="text-green-600 font-bold mt-2 mb-4 text-xl flex-grow">
+                                <strong class="text-black">Raised: </strong>€ 15,432
+                            </p>
+                            <button class="w-full text-white px-8 py-4 rounded-full font-semibold" style="background-color: #369936;">
+                                Select this cause
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="h-full w-96 rounded-xl bg-white shadow-lgflex flex-col justify-center items-center">
+                        <img src="./images/cause2.png" alt="Cause1" class="w-full">
+                        <div class="p-5">
+                            
+                            <h2 class="text-green-600 text-2xl font-bold">Oxfam Novib</h2>
+                            <p class="text-gray-700 mt-2 mb-4 text-xl flex-grow">
+                                Stichting Babyspullen zet zich in om het effect van armoede op baby’s en jonge kinderen te verminderen.
+                            </p>
+                            <p class="text-green-600 font-bold mt-2 mb-4 text-xl flex-grow">
+                                <strong class="text-black">Raised: </strong>€ 15,432
+                            </p>
+                            <button class="w-full text-white px-8 py-4 rounded-full font-semibold" style="background-color: #369936;">
+                                Select this cause
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="h-full w-96 rounded-xl bg-white shadow-lgflex flex-col justify-center items-center">
+                        <img src="./images/cause3.png" alt="Cause1" class="w-full">
+                        <div class="p-5">
+                            
+                            <h2 class="text-green-600 text-2xl font-bold">Oxfam Novib</h2>
+                            <p class="text-gray-700 mt-2 mb-4 text-xl flex-grow">
+                                Stichting Babyspullen zet zich in om het effect van armoede op baby’s en jonge kinderen te verminderen.
+                            </p>
+                            <p class="text-green-600 font-bold mt-2 mb-4 text-xl flex-grow">
+                                <strong class="text-black">Raised: </strong>€ 15,432
+                            </p>
+                            <button class="w-full text-white px-8 py-4 rounded-full font-semibold" style="background-color: #369936;">
+                                Select this cause
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+    
+                <!-- Right Arrow -->
+                <button id="next"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 z-10">
+                    <span class="text-lime-600 text-2xl">&#x1F86A;</span>
+                </button>
+            </div>
+    
+            <!-- See all stores -->
+            <div class="mt-6 flex justify-end">
+                <a href="#" class="text-gray-200 text-lg font-bold flex items-center pr-52">
+                    See all causes &#x1F86A;
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="w-full py-16 bg-cover bg-center" style="background-image: url('./images/background.jpg');">
+            <div class="flex justify-center items-center flex-col relative">
+                <div class="relative inline-block text-center">
+                    <h2 class="text-gray-200 pb-4 text-xl">
+                        Join thousands of shoppers and causes. Be part of systematic change.
+                    </h2>
+                    <img src="./images/Rectangle 49.png" alt="Happy person shopping" 
+                        class="w-44 absolute right-0 mt-[-10px]">
+                </div>
+                <h2 class="text-gray-200 pt-4 text-4xl font-bold text-center">
+                    Make a real difference, start using ShopDonation
+                </h2>
+            </div>
+            
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center px-6 md:px-0 pb-20">
+
+                <!-- Card 1 -->
+                <div class="p-8 flex flex-col h-full">
+                    <img src="./images/card_testimonials.png" alt="How it works" class="mx-auto mb-4">
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 flex flex-col h-full">
+                    <img src="./images/card_testimonials.png" alt="Transparency" class="mx-auto mb-4">
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 flex flex-col h-full">
+                    <img src="./images/card_testimonials.png" alt="Structural donations" class="mx-auto mb-4">
+                </div>
+
+            </div>
+        </section>
+
+    </section>
+
+    <!-- table -->
+    <section class="max-w-6xl mx-auto p-6 ">
+        <h2 class="text-2xl font-bold mb-4">Recent donations made</h2>
+        <div class="flex justify-end mt-4">
+            <p class="text-green-500 text-lg font-bold">
+                Total Donations <span class="text-2xl">$2,000.00 →</span>
+            </p>
+        </div>
+    
+        <!-- Table -->
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-black">
+                <thead class="text-lg text-black">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Cause name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Donation
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Username
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Shop name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="even:bg-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/Cause_tb.png" alt="Happy person shopping" class="h-12"></div>
+                            <div>Oxfam Novib</div>
+                        </th>
+                        <td class="px-6 py-4 text-sky-700" >
+                            US$ 12.75
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/User_tb.png" alt="Happy person shopping" class="h-16"></div>
+                            <div>Flower 123</div>
+                        </th>
+                        <td class="px-6 py-4">
+                            <div><img src="./images/Shop_tb.png" alt="Happy person shopping" class="h-16"></div>
+                        </td>
+                    </tr>
+                    <tr class="even:bg-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/Cause_tb.png" alt="Happy person shopping" class="h-12"></div>
+                            <div>Oxfam Novib</div>
+                        </th>
+                        <td class="px-6 py-4 text-sky-700" >
+                            US$ 12.75
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/User_tb.png" alt="Happy person shopping" class="h-16"></div>
+                            <div>Flower 123</div>
+                        </th>
+                        <td class="px-6 py-4">
+                            <div><img src="./images/Shop_tb.png" alt="Happy person shopping" class="h-16"></div>
+                        </td>
+                    </tr>
+                    <tr class="even:bg-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/Cause_tb.png" alt="Happy person shopping" class="h-12"></div>
+                            <div>Oxfam Novib</div>
+                        </th>
+                        <td class="px-6 py-4 text-sky-700" >
+                            US$ 12.75
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/User_tb.png" alt="Happy person shopping" class="h-16"></div>
+                            <div>Flower 123</div>
+                        </th>
+                        <td class="px-6 py-4">
+                            <div><img src="./images/Shop_tb.png" alt="Happy person shopping" class="h-16"></div>
+                        </td>
+                    </tr>
+                    <tr class="even:bg-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/Cause_tb.png" alt="Happy person shopping" class="h-12"></div>
+                            <div>Oxfam Novib</div>
+                        </th>
+                        <td class="px-6 py-4 text-sky-700" >
+                            US$ 12.75
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/User_tb.png" alt="Happy person shopping" class="h-16"></div>
+                            <div>Flower 123</div>
+                        </th>
+                        <td class="px-6 py-4">
+                            <div><img src="./images/Shop_tb.png" alt="Happy person shopping" class="h-16"></div>
+                        </td>
+                    </tr>
+                    <tr class="even:bg-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/Cause_tb.png" alt="Happy person shopping" class="h-12"></div>
+                            <div>Oxfam Novib</div>
+                        </th>
+                        <td class="px-6 py-4 text-sky-700" >
+                            US$ 12.75
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-green-600 flex items-center space-x-4">
+                            <div><img src="./images/User_tb.png" alt="Happy person shopping" class="h-16"></div>
+                            <div>Flower 123</div>
+                        </th>
+                        <td class="px-6 py-4">
+                            <div><img src="./images/Shop_tb.png" alt="Happy person shopping" class="h-16"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    
+        <!-- See More Button -->
+        <div class="flex justify-center my-6">
+            <button class="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-green-600">
+                See more
+            </button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+        class="relative max-w-screen-xl mt-60 mb-24 mx-auto h-[350px] flex items-center justify-between px-16 py-16 rounded-2xl overflow-visible"
+        style="background: linear-gradient(85.13deg, #369936 8.5%, #083B62 100.13%);">
+    
+        <!-- Left Image (Jumping Out from the Top) -->
+        <div class="absolute left-0 -top-[218px] ml-16 z-20">
+            <img src="./images/about_image.png" alt="Happy person shopping" class="h-auto max-h-[570px] w-auto">
+        </div>
+    
+        <!-- Right Content -->
+        <div class="pl-[550px] pr-5 text-white relative z-10">
+            <h2 class="text-2xl font-bold">About ShopDonation</h2>
+            <p class="mt-4 text-xs leading-relaxed">
+                Through ShopDonation, you can provide structural donations to nonprofits like foundations,
+                associations, charities, and community projects. You can also support schools, hospitals,
+                and personal fundraising initiatives. ShopDonation provides ongoing sponsoring for sports clubs,
+                music groups, and social enterprises.
+            </p>
+            <button class="mt-6 text-sm border-gray-100 border-solid border-2 text-white px-6 py-3 rounded-full font-semibold ">
+                Learn More
+            </button>
+        </div>
+    </section>
+
+    <hr class="bg-black border-2"/>
+
+    <!-- Footer Section -->
+    <footer class="text-black py-20 px-40">
+        <div class="mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+    
+                <!-- Left Column (Wider) -->
+                <div class="md:col-span-2 mr-10">
+                    <h2 class="text-2xl font-bold mb-4">Subscribe to our newsletter to receive updates!</h2>
+                    <p class="text-gray-600">
+                        Want updates on how your donations are making an impact with your cause?
+                    </p>
+                    <div class="my-10">
+                        <div class="flex">
+                            <input type="email" id="email" placeholder="Enter email address"
+                                class="w-full px-4 py-2 mr-3 rounded-md text-black border border-gray-200 focus:ring-2 focus:ring-gray-500 outline-none">
+                            <button
+                                class="px-6 py-2 bg-green-500 rounded-full text-white font-semibold hover:bg-green-600">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                    <div class="my-10">
+                        <label class="text-sm font-bold text-gray-600">Install the ShopDonation browser extension:</label>
+                        <div class="flex items-center space-x-4 mt-2">
+                            <img src="./images/Chrome.png" alt="Chrome" class="h-10 w-auto">
+                            <img src="./images/Gplay.png" alt="Chrome" class="h-10 w-auto">
+                            <img src="./images/Appstore.png" alt="Chrome" class="h-10 w-auto">
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-base font-semibold mb-4">Shops</h4>
+                    <ul class="text-gray-600 space-y-2 pt-2">
+                        <li><a href="#" class="hover:text-black">Find a shop</a></li>
+                        <li><a href="#" class="hover:text-black">Most popular webshops</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-base font-semibold mb-4">Causes</h3>
+                    <ul class="text-gray-600 space-y-2 pt-2">
+                        <li><a href="#" class="hover:text-black">Find a shop</a></li>
+                        <li><a href="#" class="hover:text-black">Most popular webshops</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-base font-semibold mb-4">Service</h3>
+                    <ul class="text-gray-600 space-y-2 pt-2">
+                        <li><a href="#" class="hover:text-black">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-black">{Privacy statement}</a></li>
+                        <li><a href="#" class="hover:text-black">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Column 5 -->
+                <div>
+                    <h3 class="text-base font-semibold mb-4">Folloe Us</h3>
+                    <ul class="text-gray-600 space-y-2 pt-2">
+                        <li><a href="#" class="hover:text-black">Facebook</a></li>
+                        <li><a href="#" class="hover:text-black">Instagram</a></li>
+                        <li><a href="#" class="hover:text-black">Linkedin</a></li>
+                        <li><a href="#" class="hover:text-black">X (formerly Twitter)</a></li>
+                    </ul>
+                </div>
+    
+            </div>
+        </div>
+        <!-- Right Bottom Image -->
+        <!-- <div class="bottom-0 right-0">
+            <img src="./images/globe.png" alt="globe footer" class="w-48 h-auto">
+        </div> -->
+    </footer>
+
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+
+        prev.addEventListener('click', () => {
+            carousel.scrollBy({ left: -250, behavior: 'smooth' });
+        });
+
+        next.addEventListener('click', () => {
+            carousel.scrollBy({ left: 250, behavior: 'smooth' });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const closeBtn = document.getElementById('close-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+        
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+            });
+        
+            closeBtn.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+    </script>
+    
+
+</body>
+
+</html>
